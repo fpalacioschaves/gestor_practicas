@@ -3,7 +3,7 @@ function reordenar_empresas(){
 
     var order = button.dataset.order;
 
-    var ajax_url = "http://localhost/gestion_practicas/reordenar_empresas.php";
+    var ajax_url = "./reordenar_empresas.php";
           // Creamos un nuevo objeto encargado de la comunicación
           var ajax_request = new XMLHttpRequest();
 
@@ -44,7 +44,7 @@ function reordenar_alumnos(){
 
     var order = button.dataset.order;
 
-    var ajax_url = "http://localhost/gestion_practicas/reordenar_alumnos.php";
+    var ajax_url = "./reordenar_alumnos.php";
           // Creamos un nuevo objeto encargado de la comunicación
           var ajax_request = new XMLHttpRequest();
 
@@ -82,7 +82,7 @@ function reordenar_alumnos(){
 
 function filtrar_empresas(){
     var filtro = document.getElementById("filtro").value;
-    var ajax_url = "http://localhost/gestion_practicas/filtrar_empresas.php";
+    var ajax_url = "./filtrar_empresas.php";
 
     var ajax_request = new XMLHttpRequest();
 
@@ -108,7 +108,7 @@ function filtrar_empresas(){
 
 function filtrar_alumnos(){
     var filtro = document.getElementById("filtro").value;
-    var ajax_url = "http://localhost/gestion_practicas/filtrar_alumnos.php";
+    var ajax_url = "./filtrar_alumnos.php";
 
     var element = document.getElementById("anterior"); 
     element.setAttribute("data-inicio", 0);
@@ -144,7 +144,7 @@ function leer_tutor(){
     if(empresa_seleccionada != ""){
 
         document.getElementById("fechas_practicas").style.display = "flex";
-    var ajax_url = "http://localhost/gestion_practicas/leer_tutor.php";
+    var ajax_url = "./leer_tutor.php";
 
     var ajax_request = new XMLHttpRequest();
 
@@ -178,7 +178,7 @@ function leer_tutor(){
 
 // function that deletes a company
 function borrar_empresa(id_empresa){
-    var ajax_url = "http://localhost/gestion_practicas/delete_empresa.php";
+    var ajax_url = "./delete_empresa.php";
     var ajax_request = new XMLHttpRequest();
 
     // Definimos una función a ejecutar cuándo la solicitud Ajax tiene alguna información
@@ -206,7 +206,7 @@ function borrar_empresa(id_empresa){
 
 // function that deletes an alumn
 function borrar_alumno(id_alumno){
-    var ajax_url = "http://localhost/gestion_practicas/delete_alumno.php";
+    var ajax_url = "./delete_alumno.php";
     var ajax_request = new XMLHttpRequest();
 
     // Definimos una función a ejecutar cuándo la solicitud Ajax tiene alguna información
@@ -247,10 +247,10 @@ function paginar(tabla, direccion,valor, limite){
         valor = valor - 10;
     }
     if(tabla == "empresas"){
-    var ajax_url = "http://localhost/gestion_practicas/paginar_empresa.php?tabla=" + tabla + "&valor=" + valor + "&limite=" + limite;
+    var ajax_url = "./paginar_empresa.php?tabla=" + tabla + "&valor=" + valor + "&limite=" + limite;
     }
     if(tabla == "alumnos"){
-        var ajax_url = "http://localhost/gestion_practicas/paginar_alumno.php?tabla=" + tabla + "&valor=" + valor + "&limite=" + limite;
+        var ajax_url = "./paginar_alumno.php?tabla=" + tabla + "&valor=" + valor + "&limite=" + limite;
         }
     var ajax_request = new XMLHttpRequest();
 
