@@ -20,6 +20,19 @@ check_session();
         ?>
 
     <form id="add_empresa" action="" method="POST">
+    <div class="row">
+        <div class="col-2">
+        <label for="favorita">Empresa favorita</label>
+        <select class="form-select" name="favorita">
+                    <option value=1>
+                        Favorita
+                    </option>
+                    <option value=0>
+                        No Favorita
+                    </option> 
+                </select>
+        </div>
+    </div>
         <div class="row">
             <div class="col">
                 <label for="nombre_empresa">Nombre de la empresa*</label>

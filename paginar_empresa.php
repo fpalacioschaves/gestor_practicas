@@ -26,6 +26,9 @@ foreach($resultados as $empresa){
              break;
     }
     echo '<tr class="table-'.$tr_class.'">
+    <td>';
+    echo $empresa["favorita"] == 1 ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'; 
+    echo '</td>
             <td>
                 <a href="editar_empresa.php?id_empresa='.$empresa["id_empresa"].'">
                     '.$empresa["nombre_empresa"].'

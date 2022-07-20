@@ -25,7 +25,25 @@ $empresa = leer_empresa($id_empresa)[0];
         ?>
 
     <form id="editar_empresa" action="" method="POST">
-        <div class="row">
+        
+    <div class="row">
+        <div class="col-2">
+        <label for="favorita">Empresa favorita</label>
+        <select class="form-select" name="favorita">
+                    <option 
+                        value=1
+                        <?php if($empresa["favorita"] == 1) { echo "selected";} ?>>
+                        Favorita
+                    </option>
+                    <option 
+                        value=0
+                        <?php if($empresa["favorita"] == 0) { echo "selected";} ?>>
+                        No Favorita
+                    </option> 
+                </select>
+        </div>
+    </div>
+    <div class="row">
             <div class="col">
                 <label for="nombre_empresa">Nombre de la empresa*</label>
                 <input class="form-control" type="text" name="nombre_empresa" required value='<?php echo $empresa["nombre_empresa"];?>'>

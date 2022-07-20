@@ -27,6 +27,11 @@ foreach($empresas as $empresa){
     include("./modal.php");
    echo
     '<tr class="table-'.$tr_class.'">
+    <td>';
+    echo $empresa["favorita"] == 1 ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'; 
+    echo '</td>
+
+
                     <td><a href="editar_empresa.php?id_empresa='.$empresa["id_empresa"].'">'.$empresa["nombre_empresa"].'</a></td>
                     <td>'.$empresa["direccion_empresa"].'</td>
                     <td>'.$empresa["email_empresa"].'</td>
@@ -37,5 +42,4 @@ foreach($empresas as $empresa){
                         <a  data-toggle="modal" data-target="#delete_modal_'.$empresa["id_empresa"].'" data-id="'.$empresa["id_empresa"].'"><i class="bi bi-trash3-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar"></i></a>
                     </td>
                 </tr>';
-     } ?>
-
+     }

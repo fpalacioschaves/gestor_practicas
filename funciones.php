@@ -66,6 +66,7 @@ function leer_empresa($id_empresa){
 function update_empresa($id, $datos){
 
     $conexion = new conectar_db();
+    $favorita = $datos["favorita"];
     $nombre_empresa = $datos["nombre_empresa"];
     $direccion_empresa = $datos["direccion_empresa"];
     $email_empresa = $datos["email_empresa"];
@@ -80,7 +81,8 @@ function update_empresa($id, $datos){
     $rlt_estado = $datos["rlt_estado"];
 
     $consulta = "UPDATE empresas
-    SET nombre_empresa= '$nombre_empresa',
+    SET favorita= $favorita,
+    nombre_empresa= '$nombre_empresa',
     email_empresa = '$email_empresa',
     direccion_empresa = '$direccion_empresa',
     telefono_empresa = $telefono_empresa,
@@ -107,6 +109,7 @@ function update_empresa($id, $datos){
 function add_empresa($datos){
 
     $conexion = new conectar_db();
+    $favorita = $datos["favorita"];
     $nombre_empresa = $datos["nombre_empresa"];
     $direccion_empresa = $datos["direccion_empresa"];
     $email_empresa = $datos["email_empresa"];
@@ -121,11 +124,11 @@ function add_empresa($datos){
     $rlt_estado = $datos["rlt_estado"];
 
     $consulta = "INSERT INTO empresas
-    (nombre_empresa, email_empresa,direccion_empresa,
+    (favorita,nombre_empresa, email_empresa,direccion_empresa,
     telefono_empresa,url_empresa,responsable_empresa,
     estado_empresa,tutor_empresa,convenio_estado,
     anexo_1_estado, anexo_8_estado,rlt_estado)
-    VALUES ('$nombre_empresa', '$email_empresa',
+    VALUES ($favorita,'$nombre_empresa', '$email_empresa',
     '$direccion_empresa',$telefono_empresa,
     '$url_empresa','$responsable_empresa', '$estado_empresa',
     '$tutor_empresa','$convenio_estado',
