@@ -299,3 +299,128 @@ function paginar(tabla, direccion,valor, limite){
     console.log(valor + " " + direccion);
 
 }
+
+function filtrar_favoritas(){
+    var ajax_url = "./filtrar_favoritas.php";
+
+    var ajax_request = new XMLHttpRequest();
+
+    // Definimos una función a ejecutar cuándo la solicitud Ajax tiene alguna información
+    ajax_request.onreadystatechange = function() {
+
+        // si el readyState es 4, proseguir
+        if (ajax_request.readyState == 4 ) {
+
+            // Analizaos el responseText que contendrá el JSON enviado desde el servidor
+            var response = ajax_request.responseText;
+            document.getElementById("tbody_empresas").innerHTML = response;
+        }
+     }
+
+     // Definimos como queremos realizar la comunicación
+     ajax_request.open( "GET", ajax_url);
+           
+     //Enviamos la solictud con los parámetros que habíamos definido
+     ajax_request.send();
+
+}
+
+function filtrar_por_contactar(){
+    var ajax_url = "./filtrar_por_contactar.php";
+
+    var ajax_request = new XMLHttpRequest();
+
+    // Definimos una función a ejecutar cuándo la solicitud Ajax tiene alguna información
+    ajax_request.onreadystatechange = function() {
+
+        // si el readyState es 4, proseguir
+        if (ajax_request.readyState == 4 ) {
+
+            // Analizaos el responseText que contendrá el JSON enviado desde el servidor
+            var response = ajax_request.responseText;
+            document.getElementById("tbody_empresas").innerHTML = response;
+        }
+     }
+
+     // Definimos como queremos realizar la comunicación
+     ajax_request.open( "GET", ajax_url);
+           
+     //Enviamos la solictud con los parámetros que habíamos definido
+     ajax_request.send();
+
+}
+
+function filtrar_contactadas(){
+    var ajax_url = "./filtrar_contactadas.php";
+
+    var ajax_request = new XMLHttpRequest();
+
+    // Definimos una función a ejecutar cuándo la solicitud Ajax tiene alguna información
+    ajax_request.onreadystatechange = function() {
+
+        // si el readyState es 4, proseguir
+        if (ajax_request.readyState == 4 ) {
+
+            // Analizaos el responseText que contendrá el JSON enviado desde el servidor
+            var response = ajax_request.responseText;
+            document.getElementById("tbody_empresas").innerHTML = response;
+        }
+     }
+
+     // Definimos como queremos realizar la comunicación
+     ajax_request.open( "GET", ajax_url);
+           
+     //Enviamos la solictud con los parámetros que habíamos definido
+     ajax_request.send();
+
+}
+
+function filtrar_no_interesadas(){
+    var ajax_url = "./filtrar_no_interesadas.php";
+
+    var ajax_request = new XMLHttpRequest();
+
+    // Definimos una función a ejecutar cuándo la solicitud Ajax tiene alguna información
+    ajax_request.onreadystatechange = function() {
+
+        // si el readyState es 4, proseguir
+        if (ajax_request.readyState == 4 ) {
+
+            // Analizaos el responseText que contendrá el JSON enviado desde el servidor
+            var response = ajax_request.responseText;
+            document.getElementById("tbody_empresas").innerHTML = response;
+        }
+     }
+
+     // Definimos como queremos realizar la comunicación
+     ajax_request.open( "GET", ajax_url);
+           
+     //Enviamos la solictud con los parámetros que habíamos definido
+     ajax_request.send();
+
+}
+
+function filtrar_interesadas(){
+    var ajax_url = "./filtrar_interesadas.php";
+
+    var ajax_request = new XMLHttpRequest();
+
+    // Definimos una función a ejecutar cuándo la solicitud Ajax tiene alguna información
+    ajax_request.onreadystatechange = function() {
+
+        // si el readyState es 4, proseguir
+        if (ajax_request.readyState == 4 ) {
+
+            // Analizaos el responseText que contendrá el JSON enviado desde el servidor
+            var response = ajax_request.responseText;
+            document.getElementById("tbody_empresas").innerHTML = response;
+        }
+     }
+
+     // Definimos como queremos realizar la comunicación
+     ajax_request.open( "GET", ajax_url);
+           
+     //Enviamos la solictud con los parámetros que habíamos definido
+     ajax_request.send();
+
+}

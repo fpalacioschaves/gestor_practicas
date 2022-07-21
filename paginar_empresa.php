@@ -26,7 +26,7 @@ foreach($resultados as $empresa){
              break;
     }
     echo '<tr class="table-'.$tr_class.'">
-    <td>';
+    <td  class="favorita">';
     echo $empresa["favorita"] == 1 ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'; 
     echo '</td>
             <td>

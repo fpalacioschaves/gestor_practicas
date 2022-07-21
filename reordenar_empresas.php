@@ -27,6 +27,9 @@ foreach($empresas as $empresa){
     include("./modal.php");
     echo
     '<tr class="table-'.$tr_class.'">
+    <td  class="favorita">';
+    echo $empresa["favorita"] == 1 ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'; 
+    echo '</td>
                     <td><a href="editar_empresa.php?id_empresa='.$empresa["id_empresa"].'">'.$empresa["nombre_empresa"].'</a></td>
                     <td>'.$empresa["direccion_empresa"].'</td>
                     <td>'.$empresa["email_empresa"].'</td>

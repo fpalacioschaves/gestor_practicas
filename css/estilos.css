@@ -194,7 +194,11 @@ a i{
     border: 1px solid #ccc;
     float: left;
     margin-right: 10px;
+    cursor: pointer;
 
+}
+.item .bi-star-fill{
+    cursor: pointer;
 }
 
 .dark{
@@ -215,4 +219,13 @@ a i{
 
 .bi-star-fill{
     color: gold;
+}
+
+.bi-arrow-counterclockwise{
+    color: white;
+}
+
+.favorita{
+    width: 10px;
+    text-align: center;
 }

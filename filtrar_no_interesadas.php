@@ -1,10 +1,10 @@
 <?php
 include("./funciones.php");
 
-$filtro = $_GET["filtro"];
+
 
 $conexion = new conectar_db();
-$consulta = "SELECT * FROM empresas WHERE nombre_empresa LIKE '".$filtro."%' LIMIT 0,10";
+$consulta = "SELECT * FROM empresas WHERE estado_empresa = 'No interesado'";
 $resultado = $conexion->consultar($consulta);
 $empresas = $resultado->fetch_all(MYSQLI_ASSOC);
 foreach($empresas as $empresa){

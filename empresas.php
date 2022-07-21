@@ -21,24 +21,28 @@ check_session();
         </div>
 
         <div class="add_empresa">
+        <a href="empresas.php" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> Eliminar filtros</a>
             <a href="add_empresa.php" class="btn btn-success"><i class="bi bi-plus-circle"></i> Añadir empresa</a>
         </div>
 
         <div class="color_code">
+        <div class="item">
+                <i class="bi bi-star-fill" onclick="filtrar_favoritas();"></i> Empresa favorita 
+            </div>
             <div class="item">
-                Por contactar <div class="cuadrado dark"></div>
+                Por contactar <div class="cuadrado dark" onclick="filtrar_por_contactar();"></div>
             </div>
 
             <div class="item">
-                Contactado <div class="cuadrado light"></div>
+                Contactado <div class="cuadrado light" onclick="filtrar_contactadas();"></div>
             </div>
 
             <div class="item">
-                No interesado <div class="cuadrado danger"></div>
+                No interesado <div class="cuadrado danger" onclick="filtrar_no_interesadas();"></div>
             </div>
 
             <div class="item">
-                Interesado <div class="cuadrado success"></div>
+                Interesado <div class="cuadrado success" onclick="filtrar_interesadas();"></div>
             </div>
         </div>
         <table class="table table-hover">
@@ -79,7 +83,7 @@ check_session();
                     }
                 ?>
                     <tr class="table-<?php echo $tr_class; ?>">
-                        <td>
+                        <td class="favorita">
                             <?php echo $empresa["favorita"] == 1 ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'; ?>
                         </td>
                         <td><a href="editar_empresa.php?id_empresa=<?php echo $empresa["id_empresa"]; ?>"><?php echo $empresa["nombre_empresa"]; ?></a></td>
@@ -102,7 +106,7 @@ check_session();
             </tbody>
             <tfooter class="thead-dark">
                 <tr>
-                    <th>Favorita</th>
+                    <th  class="favorita">Favorita</th>
                     <th>Nombre</th>
                     <th>Dirección</th>
                     <th>Email</th>

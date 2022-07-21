@@ -48,7 +48,7 @@ function check_session(){
 function leer_empresas($inicio = 0){
 
     $conexion = new conectar_db();
-    $consulta = "SELECT * FROM empresas LIMIT $inicio,10";
+    $consulta = "SELECT * FROM empresas ORDER BY nombre_empresa LIMIT $inicio,10";
     $resultado = $conexion->consultar($consulta);
     return $resultado->fetch_all(MYSQLI_ASSOC);
 }
