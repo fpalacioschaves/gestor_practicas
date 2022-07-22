@@ -17,7 +17,7 @@ $correcto = 0;
                 $_SESSION["password"] = $password;
 
                 $correcto = 1;
-                header('Location: empresas.php');
+                header('Location: admin.php');
             }
             if($resultado[0]["numero_usuarios"] == "0"){
 
