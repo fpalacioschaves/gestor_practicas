@@ -341,4 +341,25 @@ function contar_items($tabla){
     return $resultado[0]["numero"];
 
 }
+
+function contar_items_condicionado($tabla, $condicion){
+
+    $conexion = new conectar_db();
+    $consulta = "SELECT COUNT(*) AS numero FROM " . $tabla . " WHERE " . $condicion;
+    $resultado = $conexion->consultar($consulta);
+    $resultado = $resultado->fetch_all(MYSQLI_ASSOC);
+
+    return $resultado[0]["numero"];
+
+}
+
+// Función que lee las ultimas incidencias
+function leer_ultimas_incidencias(){
+    $conexion = new conectar_db();
+    $consulta = "SELECT * FROM incidencias LEFT JOIN empresas
+    ON incidencias.id_empresa = empresas.id_empresa ORDER BY fecha_incidencia DESC LIMIT 3";
+    $resultado = $conexion->consultar($consulta);
+    return $resultado->fetch_all(MYSQLI_ASSOC);
+
+}
 ?>

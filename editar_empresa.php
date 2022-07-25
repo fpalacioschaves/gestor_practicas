@@ -15,7 +15,7 @@ $empresa = leer_empresa($id_empresa)[0];
 
     <section class="container">
 
-    <h1>Editar empresa</h1>
+    <h1>Editar empresa: <?php echo $empresa["nombre_empresa"];?></h1>
     <?php 
     if($_POST){
         
