@@ -362,4 +362,10 @@ function leer_ultimas_incidencias(){
     return $resultado->fetch_all(MYSQLI_ASSOC);
 
 }
+function leer_incidencias_por_empresa(){
+    $conexion = new conectar_db();
+    $consulta = "SELECT COUNT(*) as numero_incidencias, incidencias.id_empresa, nombre_empresa FROM incidencias LEFT JOIN empresas ON incidencias.id_empresa = empresas.id_empresa GROUP BY incidencias.id_empresa;";
+    $resultado = $conexion->consultar($consulta);
+    return $resultado->fetch_all(MYSQLI_ASSOC);
+}
 ?>
