@@ -21,13 +21,13 @@ check_session();
         </div>
 
         <div class="add_empresa">
-        <a href="empresas.php" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> Eliminar filtros</a>
+            <a href="empresas.php" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> Eliminar filtros</a>
             <a href="add_empresa.php" class="btn btn-success"><i class="bi bi-plus-circle"></i> Añadir empresa</a>
         </div>
 
         <div class="color_code">
-        <div class="item">
-                <i class="bi bi-star-fill" onclick="filtrar_favoritas();"></i> Empresa favorita 
+            <div class="item">
+                <i class="bi bi-star-fill" onclick="filtrar_favoritas();"></i> Empresa favorita
             </div>
             <div class="item">
                 Por contactar <div class="cuadrado dark" onclick="filtrar_por_contactar();"></div>
@@ -106,7 +106,7 @@ check_session();
             </tbody>
             <tfooter class="thead-dark">
                 <tr>
-                    <th  class="favorita">Favorita</th>
+                    <th class="favorita">Favorita</th>
                     <th>Nombre</th>
                     <th>Dirección</th>
                     <th>Email</th>
@@ -121,7 +121,8 @@ check_session();
         ?>
             <div class="paginador">
 
-                <a data-inicio="0" onclick="paginar('empresas','anterior',this.getAttribute('data-inicio'),<?php echo contar_items('empresas'); ?>);" id="anterior" class="btn btn-primary disabled">Anterior </a> <a data-inicio="0" id="siguiente" onclick="paginar('empresas','siguiente',this.getAttribute('data-inicio'),<?php echo contar_items('empresas'); ?>);" class="btn btn-primary">Siguiente</a>
+                <a data-inicio="0" onclick="paginar('empresas','anterior',this.getAttribute('data-inicio'),<?php echo contar_items('empresas'); ?>);" id="anterior" class="btn btn-primary disabled">Anterior </a>
+                <a data-inicio="0" id="siguiente" onclick="paginar('empresas','siguiente',this.getAttribute('data-inicio'),<?php echo contar_items('empresas'); ?>);" class="btn btn-primary">Siguiente</a>
             </div>
         <?php } ?>
     </section>
