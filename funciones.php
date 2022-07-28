@@ -2,7 +2,7 @@
 class conectar_db{    
     private $host   ="localhost";
     private $usuario="root";
-    private $clave  ="";
+    private $clave  ="root";
     private $db     ="gestion_practicas";
     public $conexion;
     public function __construct(){
@@ -48,8 +48,9 @@ function check_session(){
 function leer_empresas($inicio = 0){
 
     $conexion = new conectar_db();
-    $consulta = "SELECT * FROM empresas ORDER BY nombre_empresa LIMIT $inicio,10";
+    $consulta = "SELECT DISTINCT * FROM empresas ORDER BY nombre_empresa";
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 }
 
@@ -59,6 +60,7 @@ function leer_empresa($id_empresa){
     $conexion = new conectar_db();
     $consulta = "SELECT * FROM empresas WHERE id_empresa=" . $id_empresa;
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 }
 
@@ -138,6 +140,8 @@ function add_empresa($datos){
    
     $resultado = $conexion->consultar($consulta);
 
+    $conexion->cerrar();
+
     header('Location: empresas.php');
 
 }
@@ -148,6 +152,7 @@ function leer_alumnos($inicio = 0){
     $conexion = new conectar_db();
     $consulta = "SELECT * FROM alumnos LIMIT $inicio,10";
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 }
 
@@ -157,6 +162,7 @@ function leer_alumno($id_alumno){
     $conexion = new conectar_db();
     $consulta = "SELECT * FROM alumnos WHERE id_alumno=" . $id_alumno;
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 }
 
@@ -217,6 +223,7 @@ function leer_alumno_empresa($id_empresa){
     $consulta = "SELECT * FROM alumno_asignado_empresa, alumnos 
     WHERE id_empresa=" . $id_empresa . " AND alumno_asignado_empresa.id_alumno = alumnos.id_alumno";
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 }
 
@@ -225,6 +232,7 @@ function leer_empresa_alumno($id_alumno){
         $consulta = "SELECT * FROM alumno_asignado_empresa, empresas 
         WHERE id_alumno=" . $id_alumno . " AND alumno_asignado_empresa.id_empresa = empresas.id_empresa";
         $resultado = $conexion->consultar($consulta);
+        $conexion->cerrar();
         return $resultado->fetch_all(MYSQLI_ASSOC);
 }
 
@@ -264,7 +272,7 @@ function add_alumno($datos){
         
     }
     
-
+    $conexion->cerrar();
     header('Location: alumnos.php');
 
 }
@@ -273,6 +281,7 @@ function leer_incidencias($id_empresa){
     $conexion = new conectar_db();
     $consulta = "SELECT * FROM incidencias WHERE id_empresa=" . $id_empresa . " ORDER BY fecha_incidencia DESC";
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 
 }
@@ -282,6 +291,7 @@ function leer_incidencia($id_incidencia){
     $conexion = new conectar_db();
     $consulta = "SELECT * FROM incidencias WHERE id_incidencia=" . $id_incidencia;
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 
 }
@@ -300,6 +310,7 @@ function update_incidencia($id, $id_empresa, $datos){
 
 
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
 
     header('Location: editar_empresa.php?id_empresa=' . $id_empresa);
 
@@ -317,6 +328,7 @@ function add_incidencia($id_empresa, $datos){
     VALUES ('$fecha_incidencia','$texto_incidencia', $id_empresa)";
 
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
 
     header('Location: editar_empresa.php?id_empresa=' . $id_empresa);
 
@@ -334,11 +346,12 @@ function get_title(){
 function contar_items($tabla){
 
     $conexion = new conectar_db();
-    $consulta = "SELECT COUNT(*) AS numero FROM " . $tabla;
+    $consulta = "SELECT DISTINCT COUNT(*) AS numero FROM " . $tabla;
     $resultado = $conexion->consultar($consulta);
     $resultado = $resultado->fetch_all(MYSQLI_ASSOC);
-
+    $conexion->cerrar();
     return $resultado[0]["numero"];
+    
 
 }
 
@@ -348,8 +361,9 @@ function contar_items_condicionado($tabla, $condicion){
     $consulta = "SELECT COUNT(*) AS numero FROM " . $tabla . " WHERE " . $condicion;
     $resultado = $conexion->consultar($consulta);
     $resultado = $resultado->fetch_all(MYSQLI_ASSOC);
-
+    $conexion->cerrar();
     return $resultado[0]["numero"];
+
 
 }
 
@@ -357,15 +371,17 @@ function contar_items_condicionado($tabla, $condicion){
 function leer_ultimas_incidencias(){
     $conexion = new conectar_db();
     $consulta = "SELECT * FROM incidencias LEFT JOIN empresas
-    ON incidencias.id_empresa = empresas.id_empresa ORDER BY fecha_incidencia DESC LIMIT 3";
+    ON incidencias.id_empresa = empresas.id_empresa ORDER BY fecha_incidencia DESC LIMIT 4";
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 
 }
 function leer_incidencias_por_empresa(){
     $conexion = new conectar_db();
-    $consulta = "SELECT COUNT(*) as numero_incidencias, incidencias.id_empresa, nombre_empresa FROM incidencias LEFT JOIN empresas ON incidencias.id_empresa = empresas.id_empresa GROUP BY incidencias.id_empresa;";
+    $consulta = "SELECT COUNT(*) as numero_incidencias, incidencias.id_empresa, nombre_empresa FROM incidencias LEFT JOIN empresas ON incidencias.id_empresa = empresas.id_empresa GROUP BY incidencias.id_empresa ORDER BY numero_incidencias DESC LIMIT 8";
     $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 }
 ?>

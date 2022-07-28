@@ -119,11 +119,11 @@ check_session();
         <?php
         if (contar_items("empresas") > 10) {
         ?>
-            <div class="paginador">
+           <!-- <div class="paginador">
 
                 <a data-inicio="0" onclick="paginar('empresas','anterior',this.getAttribute('data-inicio'),<?php echo contar_items('empresas'); ?>);" id="anterior" class="btn btn-primary disabled">Anterior </a>
                 <a data-inicio="0" id="siguiente" onclick="paginar('empresas','siguiente',this.getAttribute('data-inicio'),<?php echo contar_items('empresas'); ?>);" class="btn btn-primary">Siguiente</a>
-            </div>
+            </div>-->
         <?php } ?>
     </section>
 

@@ -206,7 +206,7 @@ $incidencias_por_empresa = leer_incidencias_por_empresa();
                     $nombre_empresa = $incidencia["nombre_empresa"];
                     $texto_incidencia = substr($incidencia["texto_incidencia"], 0, 150);
                 ?>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="card card-margin">
                             <div class="card-header no-border">
                                 <!--<h5 class="card-title">MOM</h5>-->
