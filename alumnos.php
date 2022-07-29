@@ -20,16 +20,21 @@ check_session();
         </div>
 
         <div class="add_alumno">
+        <a href="alumnos.php" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> Eliminar filtros</a>
             <a href="add_alumno.php" class="btn btn-success"><i class="bi bi-plus-circle"></i> Añadir alumno</a>
         </div>
 
         <div class="color_code">
             <div class="item">
-            Sin asociar <div class="cuadrado dark"></div>
+            Sin asociar <div class="cuadrado dark" onclick="filtrar_por_asociar();"></div>
             </div>
 
             <div class="item">
-            Alumno asociado <div class="cuadrado success"></div>
+            Alumno asociado <div class="cuadrado success" onclick="filtrar_asociado();"></div>
+            </div>
+
+            <div class="item">
+            Práctica finalizada <div class="cuadrado danger" onclick="filtrar_finalizado();"></div>
             </div>
         </div>
 
@@ -68,6 +73,10 @@ check_session();
                     $id_empresa_asociada = "";
                     $tr_class = "dark";
                 }
+                if($alumno["finalizado"] == true){
+                    $tr_class = "danger";
+                }
+
                 
                 
 
@@ -107,13 +116,13 @@ check_session();
             </tfooter>
         </table>
         <?php 
-        if(contar_items("alumnos") > 10){
+       /* if(contar_items("alumnos") > 10){
             ?>
         <div class="paginador">
             
            <a data-inicio="0" onclick="paginar('alumnos','anterior',this.getAttribute('data-inicio'),<?php echo contar_items('alumnos');?>);" id="anterior" class="btn btn-primary disabled">Anterior </a>  <a  data-inicio="0" id="siguiente" onclick="paginar('alumnos','siguiente',this.getAttribute('data-inicio'),<?php echo contar_items('alumnos');?>);" class="btn btn-primary">Siguiente</a>
         </div>
-        <?php } ?>
+       <?php  } */ ?>
     </section>
 
 

@@ -15,6 +15,8 @@ $numero_alumnos = contar_items("alumnos");
 $numero_alumnos_asignados = contar_items("alumno_asignado_empresa");
 $numero_alumnos_no_asignados = $numero_alumnos - $numero_alumnos_asignados;
 
+$numero_alumnos_finalizados = contar_items_condicionado("alumnos", "finalizado = 1");
+
 $ultimas_incidencias = leer_ultimas_incidencias();
 $numero_incidencias = contar_items("incidencias");
 
@@ -147,6 +149,16 @@ $incidencias_por_empresa = leer_incidencias_por_empresa();
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-3">
+                    <div class="card bg-success order-card">
+                        <div class="card-block">
+                            <h6 class="m-b-20">Alumnos finalizados</h6>
+                            <h2 class="text-right"><i class="bi bi-calendar-check"></i><span><?php echo $numero_alumnos_finalizados; ?></span></h2>
+                            <!--<p class="m-b-0">Empresas contactadas, a la espera de respuesta<span class="f-right"></span></p>-->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -204,7 +216,7 @@ $incidencias_por_empresa = leer_incidencias_por_empresa();
                     $mes = date("M", $fecha);
                     $id_empresa = $incidencia["id_empresa"];
                     $nombre_empresa = $incidencia["nombre_empresa"];
-                    $texto_incidencia = substr($incidencia["texto_incidencia"], 0, 150);
+                    $texto_incidencia = substr($incidencia["texto_incidencia"], 0, 100);
                 ?>
                     <div class="col-lg-3">
                         <div class="card card-margin">

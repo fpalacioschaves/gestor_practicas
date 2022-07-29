@@ -36,6 +36,19 @@ else{
         ?>
 
     <form id="editar_alumno" action="" method="POST">
+    <div class="row">
+                    <div class="col-2">
+                        <label for="favorita">Prácticas</label>
+                        <select class="form-select" name="finalizado">
+                            <option value=1 <?php if($alumno["finalizado"] == 1) { echo "selected";} ?>>
+                                Finalizada
+                            </option>
+                            <option value=0 <?php if($alumno["finalizado"] == 0) { echo "selected";} ?>>
+                                Por finalizar
+                            </option>
+                        </select>
+                    </div>
+                </div>
         <div class="row">
             <div class="col">
                 <label for="nombre">Nombre*</label>

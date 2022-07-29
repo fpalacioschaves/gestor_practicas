@@ -2,7 +2,7 @@
 class conectar_db{    
     private $host   ="localhost";
     private $usuario="root";
-    private $clave  ="root";
+    private $clave  ="";
     private $db     ="gestion_practicas";
     public $conexion;
     public function __construct(){
@@ -169,6 +169,7 @@ function leer_alumno($id_alumno){
 function update_alumno($id, $datos){
 
     $conexion = new conectar_db();
+    $finalizado = $datos["finalizado"];
     $nombre = $datos["nombre"];
     $apellidos = $datos["apellidos"];
     $dni = $datos["dni"];
@@ -179,6 +180,7 @@ function update_alumno($id, $datos){
     
     $consulta = "UPDATE alumnos
     SET nombre= '$nombre',
+    finalizado = $finalizado,
     apellidos = '$apellidos',
     dni = '$dni',
     telefono = $telefono
@@ -240,6 +242,7 @@ function leer_empresa_alumno($id_alumno){
 function add_alumno($datos){
 
     $conexion = new conectar_db();
+    $finalizado = $datos["finalizado"];
     $nombre = $datos["nombre"];
     $apellidos = $datos["apellidos"];
     $dni = $datos["dni"];
@@ -250,9 +253,9 @@ function add_alumno($datos){
     
     $consulta = "INSERT INTO alumnos
     (nombre, apellidos,dni,
-    telefono)
+    telefono, finalizado)
     VALUES ('$nombre', '$apellidos',
-    '$dni',$telefono)";
+    '$dni',$telefono, $finalizado)";
 
    
    
