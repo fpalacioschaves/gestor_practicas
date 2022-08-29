@@ -3,11 +3,6 @@
 include("./funciones.php");
 check_session();
 
-
-
-
-
-
 $entradas_agenda = leer_agenda();
 ?>
 <!DOCTYPE html>
@@ -23,6 +18,31 @@ $entradas_agenda = leer_agenda();
 
     <section class="container">
         <h1 class="title">Agenda</h1>
+
+        <div class="filtro">
+            <label for="filtro">Filtrar:</label>
+            <input type="text" name="filtro" id="filtro" onkeyup="filtrar_alumnos();">
+            <button class="btn btn-primary" onclick="document.getElementById('filtro').value = ''; filtrar_alumnos();">Borrar</button>
+        </div>
+
+        <div class="add_alumno">
+        <a href="alumnos.php" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> Eliminar filtros</a>
+            <a href="add_alumno.php" class="btn btn-success"><i class="bi bi-plus-circle"></i> Añadir alumno</a>
+        </div>
+
+        <div class="color_code">
+            <div class="item">
+            Sin asociar <div class="cuadrado dark" onclick="filtrar_por_asociar();"></div>
+            </div>
+
+            <div class="item">
+            Alumno asociado <div class="cuadrado success" onclick="filtrar_asociado();"></div>
+            </div>
+
+            <div class="item">
+            Práctica finalizada <div class="cuadrado danger" onclick="filtrar_finalizado();"></div>
+            </div>
+        </div>
         
       
 
