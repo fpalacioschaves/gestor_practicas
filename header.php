@@ -3,6 +3,8 @@
         <ul class="menu_superior">
             <li><a href="admin.php"><i class="fa-solid fa-toolbox"></i> Panel</a></li>
 
+            <li><a href="agenda.php"><i class="fa-solid fa-calendar-days"></i> Agenda</a></li>
+
             <li><a href="empresas.php"><i class="fa-solid fa-building"></i>Empresas</a></li>
 
             <li><a href="alumnos.php"><i class="fa-solid fa-school"></i></i>Alumnos</a></li>

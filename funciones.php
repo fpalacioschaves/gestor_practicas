@@ -387,4 +387,14 @@ function leer_incidencias_por_empresa(){
     $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 }
+
+// Función que lee las ultimas incidencias
+function leer_agenda(){
+    $conexion = new conectar_db();
+    $consulta = "SELECT * FROM agenda  ORDER BY fecha DESC";
+    $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
+    return $resultado->fetch_all(MYSQLI_ASSOC);
+
+}
 ?>
