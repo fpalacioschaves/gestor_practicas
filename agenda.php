@@ -21,7 +21,7 @@ $entradas_agenda = leer_agenda();
 
         <div class="filtro">
             <label for="filtro">Filtrar:</label>
-            <input type="text" name="filtro" id="filtro" onkeyup="filtrar_alumnos();">
+            <input type="text" name="filtro" id="filtro" onkeyup="filtrar_agenda();">
             <button class="btn btn-primary" onclick="document.getElementById('filtro').value = ''; filtrar_alumnos();">Borrar</button>
         </div>
 
@@ -48,8 +48,8 @@ $entradas_agenda = leer_agenda();
 
 
         <div class="container_info">
-            <h1>Últimas incidencias</h1>
-            <div class="row">
+            <h1>Últimas entradas</h1>
+            <div class="row" id="contenedor_fechas">
 
                 <?php foreach ($entradas_agenda as $entrada_agenda) {
                     $fecha = strtotime($entrada_agenda["fecha"]);
