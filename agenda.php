@@ -26,10 +26,10 @@ $entradas_agenda = leer_agenda();
         </div>
 
         <div class="add_alumno">
-        <a href="alumnos.php" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> Eliminar filtros</a>
-            <a href="add_alumno.php" class="btn btn-success"><i class="bi bi-plus-circle"></i> Añadir alumno</a>
+        <a href="agenda.php" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> Eliminar filtros</a>
+            <a href="add_evento.php" class="btn btn-success"><i class="bi bi-plus-circle"></i> Añadir evento</a>
         </div>
-
+        <!--
         <div class="color_code">
             <div class="item">
             Sin asociar <div class="cuadrado dark" onclick="filtrar_por_asociar();"></div>
@@ -43,15 +43,16 @@ $entradas_agenda = leer_agenda();
             Práctica finalizada <div class="cuadrado danger" onclick="filtrar_finalizado();"></div>
             </div>
         </div>
-        
+        -->
       
 
 
         <div class="container_info">
-            <h1>Últimas entradas</h1>
+            
             <div class="row" id="contenedor_fechas">
-
+            
                 <?php foreach ($entradas_agenda as $entrada_agenda) {
+                    $id_evento = $entrada_agenda["id_agenda"];
                     $fecha = strtotime($entrada_agenda["fecha"]);
                     $dia = date("d", $fecha);
                     $mes = date("M", $fecha);
@@ -81,7 +82,7 @@ $entradas_agenda = leer_agenda();
 
                                     </ol>
                                     <div class="widget-49-meeting-action">
-                                        <a href="./editar_empresa.php?id_empresa=<?php echo $id_empresa; ?>" class="btn btn-sm btn-flash-border-primary">Leer más</a>
+                                        <a href="./editar_evento.php?id_evento=<?php echo $id_evento; ?>" class="btn btn-sm btn-flash-border-primary">Leer más</a>
                                     </div>
                                 </div>
                             </div>
