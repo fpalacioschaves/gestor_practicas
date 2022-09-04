@@ -74,8 +74,6 @@ $ultimos_items_agenda = leer_ultimos_items();
         <div class="container_info">
             <h1>Empresas</h1>
             <div class="row">
-
-
                 <div class="col-lg-3">
                     <div class="card bg-primary order-card">
                         <div class="card-block">
@@ -106,15 +104,15 @@ $ultimos_items_agenda = leer_ultimos_items();
                     </div>
                 </div>
 
-                <div class="col-lg-3">
+               <!-- <div class="col-lg-3">
                     <div class="card bg-danger order-card">
                         <div class="card-block">
                             <h6 class="m-b-20">Empresas no interesadas</h6>
                             <h2 class="text-right"><i class="fa fa-minus-circle f-left"></i><span><?php echo $numero_empresas_no_interesado; ?></span></h2>
-                            <!--<p class="m-b-0">Completed Orders<span class="f-right">351</span></p>-->
+                            <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="col-lg-3">
                     <div class="card bg-info order-card">
