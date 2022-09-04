@@ -62,6 +62,11 @@ $tutor = "";
                         <label for="telefono">Teléfono de la alumno*</label>
                         <input class="form-control" type="text" name="telefono" required>
                     </div>
+
+                    <div class="col">
+                        <label for="email">Email del alumno*</label>
+                        <input class="form-control" type="text" name="email" required>
+                    </div>
                 </div>
 
 

@@ -73,6 +73,11 @@ else{
                 <label for="telefono">Teléfono de la alumno*</label>
                 <input class="form-control" type="text" name="telefono" required value='<?php echo $alumno["telefono"];?>'>
             </div>
+
+            <div class="col">
+                <label for="email">Email del alumno*</label>
+                <input class="form-control" type="text" name="email" required value='<?php echo $alumno["email"];?>'>
+            </div>
         </div>
 
 

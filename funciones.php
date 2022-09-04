@@ -150,7 +150,7 @@ function add_empresa($datos){
 function leer_alumnos($inicio = 0){
 
     $conexion = new conectar_db();
-    $consulta = "SELECT * FROM alumnos LIMIT $inicio,10";
+    $consulta = "SELECT * FROM alumnos";
     $resultado = $conexion->consultar($consulta);
     $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
@@ -174,6 +174,7 @@ function update_alumno($id, $datos){
     $apellidos = $datos["apellidos"];
     $dni = $datos["dni"];
     $telefono = $datos["telefono"];
+    $email = $datos["email"];
     $empresa_asociada = $datos["empresa_asociada"];
     $fecha_inicio = $datos["fecha_inicio"];
     $fecha_fin = $datos["fecha_fin"];
@@ -183,7 +184,8 @@ function update_alumno($id, $datos){
     finalizado = $finalizado,
     apellidos = '$apellidos',
     dni = '$dni',
-    telefono = $telefono
+    telefono = $telefono,
+    email = '$email'
     WHERE id_alumno = $id";
 
     $resultado = $conexion->consultar($consulta);
@@ -247,15 +249,16 @@ function add_alumno($datos){
     $apellidos = $datos["apellidos"];
     $dni = $datos["dni"];
     $telefono = $datos["telefono"];
+    $email = $datos["email"];
     $empresa_asociada = $datos["empresa_asociada"];
     $fecha_inicio = $datos["fecha_inicio"];
     $fecha_fin = $datos["fecha_fin"];
     
     $consulta = "INSERT INTO alumnos
     (nombre, apellidos,dni,
-    telefono, finalizado)
+    telefono,email, finalizado)
     VALUES ('$nombre', '$apellidos',
-    '$dni',$telefono, $finalizado)";
+    '$dni',$telefono, '$email', $finalizado)";
 
    
    
