@@ -150,7 +150,7 @@ function add_empresa($datos){
 function leer_alumnos($inicio = 0){
 
     $conexion = new conectar_db();
-    $consulta = "SELECT * FROM alumnos";
+    $consulta = "SELECT * FROM alumnos ORDER BY apellidos";
     $resultado = $conexion->consultar($consulta);
     $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
