@@ -658,3 +658,8 @@ right: 30px;
 .card-incidencia:hover, .card-resumen:hover{
     cursor: pointer;
 }
+
+#contenedor_fechas{
+    width: 100%;
+    padding-top: 50px;
+}

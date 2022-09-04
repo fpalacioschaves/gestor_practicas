@@ -2,7 +2,7 @@
 class conectar_db{    
     private $host   ="localhost";
     private $usuario="root";
-    private $clave  ="";
+    private $clave  ="root";
     private $db     ="gestion_practicas";
     public $conexion;
     public function __construct(){
@@ -386,5 +386,67 @@ function leer_incidencias_por_empresa(){
     $resultado = $conexion->consultar($consulta);
     $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
+}
+
+// Función que lee las ultimas incidencias
+function leer_agenda(){
+    $conexion = new conectar_db();
+    $consulta = "SELECT * FROM agenda  ORDER BY fecha DESC";
+    $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
+    return $resultado->fetch_all(MYSQLI_ASSOC);
+
+}
+
+//function that add the agenda item
+function add_evento($datos){
+
+    $conexion = new conectar_db();
+    $titulo = $datos["titulo"];
+    $descripcion = $datos["descripcion"];
+    $fecha = $datos["fecha"];
+    
+    $consulta = "INSERT INTO agenda
+    (titulo, descripcion,fecha)
+    VALUES ('$titulo', '$descripcion',
+    '$fecha')";
+    $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
+    header('Location: agenda.php');
+
+}
+
+// function that reads the company with the id passed as parameter
+function leer_evento($id_evento){
+
+    $conexion = new conectar_db();
+    $consulta = "SELECT * FROM agenda WHERE id_agenda =" . $id_evento;
+    $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
+    return $resultado->fetch_all(MYSQLI_ASSOC);
+}
+
+//function that updates the incidencia data in the database
+function update_evento($id, $datos){
+
+    $conexion = new conectar_db();
+    $fecha = $datos["fecha"];
+    $descripcion = $datos["descripcion"];
+    $titulo = $datos["titulo"];
+    
+
+
+    $consulta = "UPDATE agenda
+    SET fecha= '$fecha',
+    descripcion = '$descripcion' ,
+    titulo = '$titulo'
+    WHERE id_agenda = $id";
+
+
+    $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
+
+    header('Location: agenda.php');
+
 }
 ?>
