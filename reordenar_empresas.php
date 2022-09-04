@@ -4,7 +4,7 @@ include("./funciones.php");
 $order = $_GET["order"];
 
 $conexion = new conectar_db();
-$consulta = "SELECT * FROM empresas ORDER BY nombre_empresa " . $order . " LIMIT 0,10";
+$consulta = "SELECT * FROM empresas ORDER BY nombre_empresa " . $order";
 $resultado = $conexion->consultar($consulta);
 $empresas = $resultado->fetch_all(MYSQLI_ASSOC);
 foreach($empresas as $empresa){
