@@ -21,6 +21,8 @@ $ultimas_incidencias = leer_ultimas_incidencias();
 $numero_incidencias = contar_items("incidencias");
 
 $incidencias_por_empresa = leer_incidencias_por_empresa();
+
+$ultimos_items_agenda = leer_ultimos_items();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -241,6 +243,50 @@ $incidencias_por_empresa = leer_incidencias_por_empresa();
                                     </ol>
                                     <div class="widget-49-meeting-action">
                                         <a href="./editar_empresa.php?id_empresa=<?php echo $id_empresa; ?>" class="btn btn-sm btn-flash-border-primary">Ir a la empresa</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+
+        <div class="container_info">
+            <h1>Próximos eventos de la agenda</h1>
+            <div class="row">
+
+                <?php foreach ($ultimos_items_agenda as $item) {
+                    $fecha = strtotime($item["fecha"]);
+                    $dia = date("d", $fecha);
+                    $mes = date("M", $fecha);
+                    $id_evento = $item["id_agenda"];
+                    $titulo = $item["titulo"];
+                    $texto_evento = substr($item["descripcion"], 0, 100);
+                ?>
+                    <div class="col-lg-3">
+                        <div class="card card-margin">
+                            <div class="card-header no-border">
+                                <!--<h5 class="card-title">MOM</h5>-->
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="widget-49">
+                                    <div class="widget-49-title-wrapper">
+                                        <div class="widget-49-date-primary">
+                                            <span class="widget-49-date-day"><?php echo $dia; ?></span>
+                                            <span class="widget-49-date-month"><?php echo $mes; ?></span>
+                                        </div>
+                                        <div class="widget-49-meeting-info">
+                                            <span class="widget-49-pro-title"><?php echo $titulo; ?></span>
+                                            <!--<span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>-->
+                                        </div>
+                                    </div>
+                                    <ol class="widget-49-meeting-points" style="list-style: none;">
+                                        <li class="widget-49-meeting-item"><span><?php echo $texto_evento; ?></span></li>
+
+                                    </ol>
+                                    <div class="widget-49-meeting-action">
+                                        <a href="./editar_evento.php?id_evento=<?php echo $id_evento; ?>" class="btn btn-sm btn-flash-border-primary">Ir al evento</a>
                                     </div>
                                 </div>
                             </div>

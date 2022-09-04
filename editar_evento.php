@@ -4,7 +4,7 @@ include("./funciones.php");
 check_session();
 $id_evento = $_GET["id_evento"];
 $evento = leer_evento($id_evento)[0];
-
+var_dump($evento);
 
 
 ?>
@@ -34,6 +34,21 @@ $evento = leer_evento($id_evento)[0];
                     <label for="fecha">Fecha*</label>
                         <input class="form-control" type="date" name="fecha" required value='<?php echo $evento["fecha"];?>'>
                     </div>
+
+                    <div class="col">
+                    <label for="hecho">Hecho?</label>
+                    <select class="form-select" name="hecho">
+                            
+                            <option value=0 <?php if($evento["hecho"] == 0) { echo "selected";}?>>
+                                No
+                            </option>
+
+                            <option value=1 <?php if($evento["hecho"] == 1) { echo "selected";}?>>
+                                Sí
+                            </option>
+                        </select>
+                       
+                    </div>
                 </div>
 
                 <div class="row">
@@ -49,7 +64,7 @@ $evento = leer_evento($id_evento)[0];
                 <input type="submit" value="Editar" class="btn btn-primary">
 
             </form>
-
+        
         <?php } ?>
 
 

@@ -29,6 +29,8 @@ check_session();
                     <label for="fecha">Fecha*</label>
                         <input class="form-control" type="date" name="fecha" required>
                     </div>
+
+                    
                 </div>
 
                 <div class="row">

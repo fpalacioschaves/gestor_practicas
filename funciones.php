@@ -408,11 +408,12 @@ function add_evento($datos){
     $titulo = $datos["titulo"];
     $descripcion = $datos["descripcion"];
     $fecha = $datos["fecha"];
+    $hecho = 0;
     
     $consulta = "INSERT INTO agenda
-    (titulo, descripcion,fecha)
+    (titulo, descripcion,fecha, hecho)
     VALUES ('$titulo', '$descripcion',
-    '$fecha')";
+    '$fecha', 0)";
     $resultado = $conexion->consultar($consulta);
     $conexion->cerrar();
     header('Location: agenda.php');
@@ -436,13 +437,14 @@ function update_evento($id, $datos){
     $fecha = $datos["fecha"];
     $descripcion = $datos["descripcion"];
     $titulo = $datos["titulo"];
-    
+    $hecho = $datos["hecho"];
 
 
     $consulta = "UPDATE agenda
     SET fecha= '$fecha',
     descripcion = '$descripcion' ,
-    titulo = '$titulo'
+    titulo = '$titulo',
+    hecho = $hecho
     WHERE id_agenda = $id";
 
 
@@ -451,5 +453,13 @@ function update_evento($id, $datos){
 
     header('Location: agenda.php');
 
+}
+
+function leer_ultimos_items(){
+    $conexion = new conectar_db();
+    $consulta = "SELECT * FROM agenda WHERE hecho = 0 ORDER BY fecha  DESC LIMIT 4";
+    $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
+    return $resultado->fetch_all(MYSQLI_ASSOC);
 }
 ?>
