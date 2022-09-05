@@ -457,7 +457,7 @@ function update_evento($id, $datos){
 
 function leer_ultimos_items(){
     $conexion = new conectar_db();
-    $consulta = "SELECT * FROM agenda WHERE hecho = 0 ORDER BY fecha  DESC LIMIT 4";
+    $consulta = "SELECT * FROM agenda WHERE hecho = 0 AND fecha >= CURDATE() ORDER BY fecha  DESC LIMIT 4";
     $resultado = $conexion->consultar($consulta);
     $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);

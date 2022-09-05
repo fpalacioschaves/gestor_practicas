@@ -23,8 +23,6 @@ foreach($empresas as $empresa){
 }
 $consulta = "UPDATE empresas SET favorita = $favorita WHERE id_empresa = $id_empresa";
 $resultado = $conexion->consultar($consulta);
-
-
 echo '<i class="'.$class.'"></i>';
       ?>
 
