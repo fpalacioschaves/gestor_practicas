@@ -83,7 +83,7 @@ check_session();
                     }
                 ?>
                     <tr class="table-<?php echo $tr_class; ?>">
-                        <td class="favorita">
+                        <td class="favorita" id="favorita_<?php echo $empresa["id_empresa"];?>" onclick="favorita(<?php echo $empresa['id_empresa'];?>);">
                             <?php echo $empresa["favorita"] == 1 ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'; ?>
                         </td>
                         <td><a href="editar_empresa.php?id_empresa=<?php echo $empresa["id_empresa"]; ?>"><?php echo $empresa["nombre_empresa"]; ?></a></td>
