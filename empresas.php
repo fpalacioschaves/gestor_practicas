@@ -57,7 +57,7 @@ check_session();
                     <th>Dirección</th>
                     <th>Email</th>
                     <th>Teléfono</th>
-                    <th>Persona de contacto</th>
+                    <th>Contacto</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -111,7 +111,7 @@ check_session();
                     <th>Dirección</th>
                     <th>Email</th>
                     <th>Teléfono</th>
-                    <th>Persona de contacto</th>
+                    <th>Contacto</th>
                     <th>Acciones</th>
                 </tr>
             </tfooter>

@@ -27,7 +27,7 @@ foreach($empresas as $empresa){
     include("./modal.php");
    echo
     '<tr class="table-'.$tr_class.'">
-    <td  class="favorita">';
+    <td  class="favorita" id="favorita_'.$empresa["id_empresa"].'" onclick="favorita('.$empresa['id_empresa'].');">';
     echo $empresa["favorita"] == 1 ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'; 
     echo '</td>
 

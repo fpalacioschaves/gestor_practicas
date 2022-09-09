@@ -462,4 +462,13 @@ function leer_ultimos_items(){
     $conexion->cerrar();
     return $resultado->fetch_all(MYSQLI_ASSOC);
 }
+
+function leer_futuros_eventos(){
+    $conexion = new conectar_db();
+    $consulta = "SELECT COUNT(*) AS numero_futuros_eventos FROM agenda WHERE hecho = 0 AND fecha >= CURDATE()";
+    $resultado = $conexion->consultar($consulta);
+    $conexion->cerrar();
+    return $resultado->fetch_all(MYSQLI_ASSOC);
+    //return $resultado["numero_futuros_eventos"];
+}
 ?>

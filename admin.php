@@ -23,6 +23,10 @@ $numero_incidencias = contar_items("incidencias");
 $incidencias_por_empresa = leer_incidencias_por_empresa();
 
 $ultimos_items_agenda = leer_ultimos_items();
+
+$numero_eventos = leer_futuros_eventos();
+
+$numero_futuros_eventos = $numero_eventos[0]["numero_futuros_eventos"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +49,7 @@ $ultimos_items_agenda = leer_ultimos_items();
                         <div class="card-block">
                             <h6 class="m-b-20">Número de empresas</h6>
                             <h2 class="text-right"><i class="fa fa-building f-left"></i><span><?php echo $numero_empresas; ?></span></h2>
-                            <!--<p class="m-b-0">Empresas totales en la base de datos.<span class="f-right"></span></p>-->
+                          
                         </div>
                     </div>
                 </div>
@@ -54,17 +58,27 @@ $ultimos_items_agenda = leer_ultimos_items();
                         <div class="card-block">
                             <h6 class="m-b-20">Número de alumnos</h6>
                             <h2 class="text-right"><i class="fa-solid fa-graduation-cap"></i><span><?php echo $numero_alumnos; ?></span></h2>
-                            <!--<p class="m-b-0">Empresas totales en la base de datos.<span class="f-right"></span></p>-->
+                           
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3">
-                    <div class="card bg-c-pink order-card">
+                <div class="col-lg-3" onclick="document.location.href = './incidencias.php';">
+                    <div class="card bg-c-pink card-resumen order-card">
                         <div class="card-block">
                             <h6 class="m-b-20">Número de incidencias</h6>
                             <h2 class="text-right"><i class="fa-solid fa-message"></i><span><?php echo $numero_incidencias; ?></span></h2>
-                            <!--<p class="m-b-0">Empresas totales en la base de datos.<span class="f-right"></span></p>-->
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3" onclick="document.location.href = './agenda.php';">
+                    <div class="card bg-c-yellow card-resumen order-card">
+                        <div class="card-block">
+                            <h6 class="m-b-20">Número de eventos</h6>
+                            <h2 class="text-right"><i class="fa-solid fa-message"></i><span><?php echo $numero_futuros_eventos; ?></span></h2>
+                        
                         </div>
                     </div>
                 </div>
