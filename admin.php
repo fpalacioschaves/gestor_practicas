@@ -63,7 +63,7 @@ $numero_futuros_eventos = $numero_eventos[0]["numero_futuros_eventos"];
                     </div>
                 </div>
 
-                <div class="col-lg-3" onclick="document.location.href = './incidencias.php';">
+                <div class="col-lg-3">
                     <div class="card bg-c-pink card-resumen order-card">
                         <div class="card-block">
                             <h6 class="m-b-20">Número de incidencias</h6>
