@@ -2,7 +2,7 @@
 class conectar_db{    
     private $host   ="localhost";
     private $usuario="root";
-    private $clave  ="root";
+    private $clave  ="";
     private $db     ="gestion_practicas";
     public $conexion;
     public function __construct(){

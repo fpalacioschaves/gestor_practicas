@@ -1,3 +1,8 @@
+$(document).ready(function() {
+    $('#tabla_empresas').DataTable( {} );
+
+    $('#tabla_alumnos').DataTable( {} );
+} );
 function reordenar_empresas(){
     var button = document.getElementById("cabecera_nombre");
 

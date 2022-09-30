@@ -12,12 +12,12 @@ check_session();
 
     <section class="container">
     <h1 class="title">Listado de alumnos</h1>
-        <!-- Contenido  -->
+        <!-- Contenido  
         <div class="filtro">
             <label for="filtro">Filtrar:</label>
             <input type="text" name="filtro" id="filtro" onkeyup="filtrar_alumnos();">
             <button class="btn btn-primary" onclick="document.getElementById('filtro').value = ''; filtrar_alumnos();">Borrar</button>
-        </div>
+        </div>-->
 
         <div class="add_alumno">
         <a href="alumnos.php" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> Eliminar filtros</a>
@@ -38,13 +38,13 @@ check_session();
             </div>
         </div>
 
-        <table class="table table-hover">
+        <table class="table table-hover" id="tabla_alumnos">
             <thead class="thead-dark">
                 <tr>
-                <th id="cabecera_nombre" data-order="ASC" onclick="reordenar_alumnos();">
+                <th id="cabecera_nombre" data-order="ASC">
                     Nombre
-                    <i class="bi bi-arrow-down-circle-fill" id="flecha_arriba"></i>
-                    <i class="bi bi-arrow-up-circle-fill" id="flecha_abajo"></i>
+                    <!--<i class="bi bi-arrow-down-circle-fill" id="flecha_arriba"></i>
+                    <i class="bi bi-arrow-up-circle-fill" id="flecha_abajo"></i>-->
                 </th>
                 <th>Apellidos</th>
                 <th>DNI</th>
@@ -125,12 +125,4 @@ check_session();
        <?php  } */ ?>
     </section>
 
-
-
-    
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="./js/scripts.js"  crossorigin="anonymous"></script>
-</body>
-</html>
+<?php include ("footer.php");?>

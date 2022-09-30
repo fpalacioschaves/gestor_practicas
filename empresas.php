@@ -13,12 +13,12 @@ check_session();
 
     <section class="container">
         <h1 class="title">Listado de empresas</h1>
-        <!-- Contenido  -->
+        <!-- Contenido  
         <div class="filtro">
             <label for="filtro">Filtrar:</label>
             <input type="text" name="filtro" id="filtro" onkeyup="filtrar_empresas();">
             <button class="btn btn-primary" onclick="document.getElementById('filtro').value = ''; filtrar_empresas();">Borrar</button>
-        </div>
+        </div>-->
 
         <div class="add_empresa">
             <a href="empresas.php" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> Eliminar filtros</a>
@@ -45,19 +45,19 @@ check_session();
                 Interesado <div class="cuadrado success" onclick="filtrar_interesadas();"></div>
             </div>
         </div>
-        <table class="table table-hover">
+        <table class="table table-hover" id="tabla_empresas">
             <thead class="thead-dark">
                 <tr>
                     <th>Favorita</th>
-                    <th id="cabecera_nombre" data-order="ASC" onclick="reordenar_empresas();">
+                    <th>Estado</th>
+                    <th id="cabecera_nombre" data-order="ASC">
                         Nombre
-                        <i class="bi bi-arrow-down-circle-fill" id="flecha_arriba"></i>
-                        <i class="bi bi-arrow-up-circle-fill" id="flecha_abajo"></i>
+                        <!--<i class="bi bi-arrow-down-circle-fill" id="flecha_arriba"></i>
+                        <i class="bi bi-arrow-up-circle-fill" id="flecha_abajo"></i>-->
                     </th>
                     <th>Dirección</th>
                     <th>Email</th>
                     <th>Teléfono</th>
-                    <th>Contacto</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -86,11 +86,11 @@ check_session();
                         <td class="favorita" id="favorita_<?php echo $empresa["id_empresa"];?>" onclick="favorita(<?php echo $empresa['id_empresa'];?>);">
                             <?php echo $empresa["favorita"] == 1 ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'; ?>
                         </td>
+                        <td><?php echo $empresa["estado_empresa"];?></td>
                         <td><a href="editar_empresa.php?id_empresa=<?php echo $empresa["id_empresa"]; ?>"><?php echo $empresa["nombre_empresa"]; ?></a></td>
                         <td><?php echo $empresa["direccion_empresa"]; ?></td>
                         <td><?php echo $empresa["email_empresa"]; ?></td>
                         <td><?php echo $empresa["telefono_empresa"]; ?></td>
-                        <td><?php echo $empresa["responsable_empresa"]; ?></td>
                         <td>
                             <!-- Editar empresa -->
                             <a href="editar_empresa.php?id_empresa=<?php echo $empresa["id_empresa"]; ?>"><i class="bi bi-pencil-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar"></i></a>
@@ -107,11 +107,11 @@ check_session();
             <tfooter class="thead-dark">
                 <tr>
                     <th class="favorita">Favorita</th>
+                    <th>Estado</th>
                     <th>Nombre</th>
                     <th>Dirección</th>
                     <th>Email</th>
                     <th>Teléfono</th>
-                    <th>Contacto</th>
                     <th>Acciones</th>
                 </tr>
             </tfooter>
@@ -127,13 +127,4 @@ check_session();
         <?php } ?>
     </section>
 
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="./js/scripts.js" crossorigin="anonymous"></script>
-</body>
-
-</html>
+<?php include("footer.php");?>
